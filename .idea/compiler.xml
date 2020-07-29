@@ -8,6 +8,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="cat-logger" />
+        <module name="cat-publisher" />
         <module name="cat-realtime" />
         <module name="catcommon" />
         <module name="catmock" />

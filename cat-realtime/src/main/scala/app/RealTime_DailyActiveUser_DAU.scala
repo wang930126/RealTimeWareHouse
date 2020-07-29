@@ -15,6 +15,7 @@ import redis.clients.jedis.Jedis
 import util.{RealtimeKafkaUtil, RedisUtil}
 import java.util
 
+import org.apache.hadoop.conf.Configuration
 import org.apache.spark.broadcast.Broadcast
 
 /**
@@ -108,6 +109,19 @@ object RealTime_DailyActiveUser_DAU {
                     }
             }
         )
+
+        // TODO 8.把去重后的数据写入Phonenix-HBase中
+        import org.apache.phoenix.spark._
+        distinctStream.foreachRDD({
+            rdd:RDD[StartUpLog] => {
+                rdd.saveToPhoenix(
+                    "CAT2019_DAU",// 表名
+                    Seq("MID", "UID", "APPID", "AREA", "OS", "CH", "TYPE", "VS", "LOGDATE", "LOGHOUR", "TS"),// 列名
+                    new Configuration(),// 写入配置
+                    Some("spark105,spark106,spark107:2181")// 写入的zk
+                )
+            }
+        })
 
         ssc.start()
         ssc.awaitTermination()
