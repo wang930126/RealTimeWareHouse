@@ -12,6 +12,7 @@
         <module>cat-common</module>
         <module>cat-mock</module>
         <module>cat-logger</module>
+        <module>cat-realtime</module>
     </modules>
 
     <parent>
@@ -109,7 +110,7 @@
 
             <dependency>
                 <groupId>org.apache.spark</groupId>
-                <artifactId>spark-streaming-kafka-0-10_2.11</artifactId>
+                <artifactId>spark-streaming-kafka-0-11_2.11</artifactId>
                 <version>${spark.version}</version>
             </dependency>
         </dependencies>
