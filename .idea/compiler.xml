@@ -10,6 +10,7 @@
         <module name="cat-logger" />
         <module name="cat-publisher" />
         <module name="cat-realtime" />
+        <module name="catcanal" />
         <module name="catcommon" />
         <module name="catmock" />
       </profile>

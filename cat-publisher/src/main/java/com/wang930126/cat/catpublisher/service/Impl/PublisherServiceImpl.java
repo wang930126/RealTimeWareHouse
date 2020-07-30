@@ -1,6 +1,7 @@
 package com.wang930126.cat.catpublisher.service.Impl;
 
 import com.wang930126.cat.catpublisher.mapper.DauMapper;
+import com.wang930126.cat.catpublisher.mapper.OrderMapper;
 import com.wang930126.cat.catpublisher.service.PublisherService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,9 @@ public class PublisherServiceImpl implements PublisherService {
 
     @Autowired
     DauMapper dauMapper;
+
+    @Autowired
+    OrderMapper orderMapper;
 
     @Override
     public int getDauTotal(String date) {
@@ -29,5 +33,20 @@ public class PublisherServiceImpl implements PublisherService {
             dauHourMap.put(map.get("LH"),map.get("CT"));
         }
         return dauHourMap;
+    }
+
+    @Override
+    public Double getOrderAmount(String date) {
+        return orderMapper.selectOrderTotal(date);
+    }
+
+    @Override
+    public Map getOrderAmountHour(String date) {
+        Map<String, Object> map = new HashMap<>();
+        List<Map> maps = orderMapper.selectOrderTotalHourMap(date);
+        for (Map map1 : maps) {
+            map.put((String)map1.get("CREATE_HOUR"),map1.get("SUM_AMOUNT"));
+        }
+        return map;
     }
 }

@@ -13,6 +13,7 @@
         <module>cat-mock</module>
         <module>cat-logger</module>
         <module>cat-realtime</module>
+        <module>cat-canal</module>
     </modules>
 
     <parent>
