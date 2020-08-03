@@ -12,5 +12,6 @@ public class constants {
     public static final String ES_INDEX_NEW_MID="cat_new_mid";
     public static final String ES_INDEX_NEW_ORDER="cat_new_order";
     public static final String ES_INDEX_SALE_DETAIL="cat_sale_detail";
+    public static final String ES_INDEX_COUPON_ALERT ="cat_coupon_alert";
 
 }

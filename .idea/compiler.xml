@@ -15,5 +15,8 @@
         <module name="catmock" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="cat-alert" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
