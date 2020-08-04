@@ -12,7 +12,7 @@ object RealtimeESUtil {
     private var conn:JestClient = null
     private val esServerUri:String = "http://spark105:9200"
 
-    def getConn() = {
+    private[util] def getConn() = {
         if(conn == null){
             val factory: JestClientFactory = new JestClientFactory
             factory.setHttpClientConfig(

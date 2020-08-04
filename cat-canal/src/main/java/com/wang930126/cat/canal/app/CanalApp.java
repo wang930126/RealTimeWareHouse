@@ -41,7 +41,7 @@ public class CanalApp {
             if(message.getEntries().size() == 0){ //如果无变化 程序休眠
                 System.out.println("目前没有数据，监控程序暂时休息5s");
                 try {
-                    Thread.currentThread().sleep(5000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

@@ -25,6 +25,9 @@ public class CanalHandler {
             //如果是新增或修改的用户表 发往Kafka用户主题
         }else if("user_info".equals(tableName) && (eventType == CanalEntry.EventType.INSERT || eventType == CanalEntry.EventType.UPDATE)){
             send2Kafka(constants.KAFKA_TOPIC_USER);
+        }else if("order_detail".equals(tableName) && eventType == CanalEntry.EventType.INSERT){
+            //如果是新增的订单详情表的变化 把更新的内容发送到Kafka的KAFKA_TOPIC_ORDER_DETAIL主题
+            send2Kafka(constants.KAFKA_TOPIC_ORDER_DETAIL);
         }
     }
 
